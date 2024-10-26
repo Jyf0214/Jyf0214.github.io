@@ -118,7 +118,7 @@ comments:
     repo: "Jyf0214/Jyf0214.github.io" # <gh-username>/<repo>
     repo_id: "R_kgDONFu4tA"
     category: "General"
-    category_id: "DIC_kwDONFu4tM4Cjr_o"
+    category_id: "DIC_kwDONFu4tM4Cjr_m"
     mapping: "title" # optional, default to 'pathname'
     strict: # optional, default to '0'
     input_position: "top" # optional, default to 'bottom'
