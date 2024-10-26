@@ -1,7 +1,7 @@
 ---
 title: Jekyll博客快速入门指南
 description: 使用Jekyll创建和发布博客的简易教程
-author: Jyf0214
+author: Jyf0214 
 date: 2024-04-21 12:10:00 +0800
 categories: [Tutorial, Jekyll]
 tags: [Jekyll, 博客, 入门]
@@ -70,6 +70,9 @@ theme: minima
 
 创建一个新的GitHub仓库，并将项目上传。然后在仓库设置中启用GitHub Pages，你的博客就可以在线访问了。
 
---- 
 
-希望这能帮助你更直观地了解如何使用Jekyll创建博客！
+---
+
+恭喜！你已经完成了Jekyll博客的基本搭建。接下来，你可以继续探索Jekyll的更多功能，例如标签分类、分页、插件等。
+
+--- 
