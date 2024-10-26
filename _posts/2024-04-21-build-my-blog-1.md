@@ -1,120 +1,81 @@
 ---
-title: Jekyll博客搭建教程（上篇）
-description: 关于Jekyll环境的安装与使用
-author: MsEspeon
+title: Jekyll博客快速入门指南
+description: 使用Jekyll创建和发布博客的简易教程
+author: Jyf0214
 date: 2024-04-21 12:10:00 +0800
 categories: [Tutorial, Jekyll]
+tags: [Jekyll, 博客, 入门]
 pin: true
 math: true
 mermaid: true
 ---
 
-## 前言
+# Jekyll博客快速入门指南
 
-[Jekyll](https://github.com/jekyll/jekyll)是一个轻量级的静态网站生成器，它采用Liquid作为模板语言，支持用户自定义网页的外观布局、使用Markdown创作发布内容。本文介绍如何使用Jekyll搭建个人网站，内容参考自Jekyll的[说明文档](https://jekyllrb.com/docs/)。
+Jekyll是一款静态站点生成器，它可以帮助我们轻松创建一个功能齐全的博客。这篇教程将带你从零开始，逐步了解如何使用Jekyll搭建一个简单的博客站点。
 
-## 环境安装
+---
 
-Jekyll要求安装以下环境：
+## 1. 安装Jekyll
 
-- Ruby
-- RubyGems
-- Jekyll
+首先确保你已经安装了Ruby和RubyGems。然后在终端中运行以下命令来安装Jekyll和bundler：
 
-我的操作系统是Ventura(macOS 13)，因此主要基于mac的安装流程进行说明，其他系统的安装步骤类似，这里仅给出文档链接不做具体说明。
+```bash
+gem install jekyll bundler
 
-### 安装Ruby和RubyGems
+2. 创建新项目
 
-Ruby的安装详见[Jekyll Installation](https://jekyllrb.com/docs/installation/)。根据需求选择合适的版本，Jekyll要求Ruby版本高于**2.5.0**，本文使用的版本为**3.1.3**。RubyGems捆绑在Ruby的安装包中，无需额外下载。
+使用以下命令生成一个新的Jekyll站点：
 
-对于Windows/Linux等系统，请按照Jekyll文档的说明进行安装，并跳过本章节阅读下一章[使用Jekyll搭建博客](#使用jekyll搭建博客)。
-
-在macOS下，可使用`ruby-install`安装Ruby，和使用`chruby`配置环境：
-
-- 安装[Homebrew](https://brew.sh/)
-
-```zsh
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-- 使用Homebrew安装`chruby`和`ruby-install`
-
-```zsh
-brew install chruby ruby-install xz
-```
-
-- 使用`ruby-install`安装Ruby
-
-```zsh
-ruby-install ruby 3.1.3
-```
-
-- 使用`chruby`配置环境
-
-```zsh
-echo "source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh" >> ~/.zshrc
-echo "source $(brew --prefix)/opt/chruby/share/chruby/auto.sh" >> ~/.zshrc
-echo "chruby ruby-3.1.3" >> ~/.zshrc # run 'chruby' to see actual version
-```
-
-- 检查安装是否成功
-
-退出并**重启**（注意要重开一个窗口）Terminal终端，运行以下命令：
-
-```zsh
-ruby -v
-```
-
-运行结果显示`ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e)`（或是更高版本）即安装成功。
-
-### 安装Jekyll
-
-使用Ruby的包管理器RubyGems可直接下载Jekyll。
-
-```zsh
-gem install jekyll
-```
-
-## 使用Jekyll搭建博客
-
-在上一节中我们安装了前置环境，现在我们创建一个Jekyll项目来生成博客网页。
-
-我们选择[Bundle](https://bundler.io/)来管理Jekyll的项目环境。对于不同的Jekyll项目，可以用Bundle分别搭建独立的依赖环境，而不相互干扰。使用Bundle创建Jekyll项目的流程如下：
-
-- 使用RubyGems下载`bundle`
-
-```zsh
-gem install bundler
-```
-
-- 在`./myblog`路径下创建Jekyll项目
-
-```zsh
 jekyll new myblog
 cd myblog
-```
+bundle install
 
-- 运行项目生成博客网页
+此时，myblog文件夹中已经包含了一个基本的博客项目结构。
 
-```zsh
+3. 启动本地服务器
+
+通过以下命令启动本地服务器：
+
 bundle exec jekyll serve
-```
 
-可以在[http://localhost:4000](http://localhost:4000)本地浏览网页。
+服务器将在http://localhost:4000上运行，打开浏览器访问该地址即可预览你的博客。
+
+4. 添加内容
+
+要创建一个新的博客帖子，可以在_posts文件夹中添加Markdown文件，格式如下：
+
+---
+title: 文章标题
+date: 2024-04-21 12:00:00 +0800
+categories: [分类]
+tags: [标签]
+author: MsEspeon
+pin: true
+math: true
+mermaid: true
+---
+
+这里是你的博客内容。
+
+5. 自定义配置
+
+在_config.yml文件中可以调整博客的配置，例如站点标题、描述、主题等。可以参考官方文档来了解更多配置项。
+
+title: My Awesome Blog
+description: A blog powered by Jekyll
+theme: minima
+
+6. 发布到GitHub Pages
+
+创建一个新的GitHub仓库，并将项目上传。然后在仓库设置中启用GitHub Pages，你的博客就可以在线访问了。
 
 
-## 自定义博客外观
+---
 
-通过创建Jekyll项目，我们生成了一个简易的网站。当然这个网站十分简陋，和一个功能完备的现代博客相去甚远，下一步就是美化网页的外观以及添加更多的功能了。
+恭喜！你已经完成了Jekyll博客的基本搭建。接下来，你可以继续探索Jekyll的更多功能，例如标签分类、分页、插件等。
 
-一个选择是自己写一套前端，可以参考这篇教程[Step by Step Tutorial](https://jekyllrb.com/docs/step-by-step/01-setup/)，其中的工作量无疑是巨大的。另一个选择是使用别人写好的模版，Jekyll拥有成熟的主题开发生态，用户可以从海量的主题模版中挑选出适合自己的那一款。我们可以在他人模版的基础上，根据自己的需求做一些自定义修改。
+---
 
-下面列出一些常用Jekyll主题站点：
+这样一来，你的Jekyll文章模板包含了所有需要的固定字段，如作者、日期、置顶、数学公式支持、Mermaid图表支持等。
 
-- [GitHub.com \#jekyll-theme repos](https://github.com/topics/jekyll-theme)
-- [jamstackthemes.dev](https://jamstackthemes.dev/ssg/jekyll/)
-- [http://jekyllthemes.org/](http://jekyllthemes.org/)
-- [https://jekyllthemes.io/](https://jekyllthemes.io/)
-- [jekyll-themes.com](jekyll-themes.com)
-
-关于主题设置的更多内容，参考[Jekyll Themes](https://jekyllrb.com/docs/themes/)。在[下篇](/posts/build-my-blog-2/)中，我将详细介绍本站采用的主题，即Chirpy主题的配置和使用。
