@@ -1,4 +1,5 @@
 ---
+
 title: Jekyll博客快速入门指南
 description: 使用Jekyll创建和发布博客的简易教程
 author: Jyf0214
@@ -8,19 +9,18 @@ tags: [Jekyll, 博客, 入门]
 pin: true
 math: true
 mermaid: true
----
 
-# Jekyll博客快速入门指南
+Jekyll博客快速入门指南
 
 Jekyll是一款静态站点生成器，它可以帮助我们轻松创建一个功能齐全的博客。这篇教程将带你从零开始，逐步了解如何使用Jekyll搭建一个简单的博客站点。
 
+
 ---
 
-## 1. 安装Jekyll
+1. 安装Jekyll
 
 首先确保你已经安装了Ruby和RubyGems。然后在终端中运行以下命令来安装Jekyll和bundler：
 
-```bash
 gem install jekyll bundler
 
 2. 创建新项目
