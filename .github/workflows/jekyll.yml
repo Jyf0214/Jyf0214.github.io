@@ -57,17 +57,8 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-      - name: Push to gh-pages branch
-        if: ${{ success() }} # 确保之前的步骤成功
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # 克隆 gh-pages 分支到 temp 文件夹
-          git clone --branch=gh-pages --depth=1 https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }} temp || mkdir temp
-          cp -r _site/* temp/
-          cd temp
-          git config user.name "${{ github.actor }}"
-          git config user.email "${{ github.actor }}@users.noreply.github.com"
-          git add .
-          git commit -m "Update gh-pages branch from ${GITHUB_SHA}" || echo "No changes to commit"
-          git push origin gh-pages
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist  # Vite 默认构建输出目录
