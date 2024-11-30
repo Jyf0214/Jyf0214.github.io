@@ -64,7 +64,7 @@ jobs:
         run: |
           # 克隆 gh-pages 分支到 temp 文件夹
           git clone --branch=gh-pages --depth=1 https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }} temp || mkdir temp
-          cp -r public/* temp/
+          cp -r _site/* temp/
           cd temp
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.actor }}@users.noreply.github.com"
